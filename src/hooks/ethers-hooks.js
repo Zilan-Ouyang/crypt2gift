@@ -3,7 +3,7 @@ import {enableProvider, getNetwork, connect2Provider, getSigner, connect2Contrac
 import {CRYPT2GIFT_ADDRESS, LINK_TOKEN_ADDRESS, CRYPT2GIFT_ABI, LINK_TOKEN_ABI} from "../contracts/data2";
 import { useClaimGift } from './crypt2gift';
 
-const NETWORK = "3";
+const NETWORK = "1";
 
 export const Web3Context = React.createContext(null);
 export const Web3Provider = ({children}) => {
@@ -87,7 +87,7 @@ export const useEthers = () => {
     }, [state.address, state.provider]);
 
     useEffect(() => {
-        
+        console.log(state.network)
         console.log(state.network === NETWORK)
         console.log(state.signer)
         console.log(NETWORK) //3
