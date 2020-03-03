@@ -243,12 +243,15 @@ export const useTransferAndCall = () => {
     const [state, dispatch] = useReducer(ethersCallReducer, initialState);
     const web3Context = useContext(Web3Context);
     const transferAndCall = useCallback(async (address, value, data) => {
+        const gasLimit ={
+            gasLimit: 9982802
+        }
         data = ethers.utils.formatBytes32String(data);
         value = linkToBigNumber(value);
         dispatch({type: "loading"});
         console.log(web3Context)
         try {
-            let result = await web3Context.linktoken.transferAndCall(address, value, data);
+            let result = await web3Context.linktoken.transferAndCall(address, value, data, gasLimit);
             console.log('result')
             dispatch({type: "success", response: result});
         }catch(e) {
