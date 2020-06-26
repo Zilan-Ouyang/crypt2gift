@@ -27,7 +27,7 @@ export default function Currency ({cryptState}) {
   const dispatch = useContext(DappDispatch);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [currency, setCurrency] = useState();
+  const [currency, setCurrency] = useState("");
   function handleChange(event) {
       setCurrency(event.target.value);
       dispatch({type: "SET_SYMBOL_CHOSEN", symbolChosen: event.target.value});
